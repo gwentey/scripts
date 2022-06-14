@@ -1,0 +1,104 @@
+<?php include "v_header.php" ?>
+
+<link href="./css/card_stock.css" rel="stylesheet" media="all">
+
+<style>
+
+.titre_produit_stock{
+  border : 0px solid;
+  height: 40px;
+  width: 120px;
+  position: relative;
+  top: -15px;
+  text-align:center;
+
+}
+
+ .card-body{
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  text-align:center;
+ }
+
+ .stock_produit_stock{
+  border : 0px solid;
+  position: relative;
+  width: 25px;
+  top: -15px;
+  width: 70px;
+  height: 44px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5%;
+  border-radius: 20px;
+
+ }
+
+ .badge_produit_stock{
+  border : 0px solid;
+  height: 35px;
+  width: 120px;
+  position: relative;
+  top: -10px;
+
+}
+
+.card{
+  height: 235px;
+}
+
+.cercle { 
+		height: 16px; 
+		width: 16px; 
+		border-radius: 50%;
+    position:absolute;
+    top: -5px; 
+    left: 150px;
+    z-index:1; 
+	} 
+
+  .cercle.cercle-red { 
+		background-color: #E74C3C;
+  }
+
+  .cercle.cercle-green { 
+		background-color: #27AE60;
+  }
+
+  .cercle.cercle-orange { 
+		background-color: #E67E22;
+  }
+</style>
+
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+
+<div class="container">
+  
+  <div class="card-container mt-4 mb-4">
+    
+    <?php foreach ($RecuperationDesStockCuisine as $RecuperationDesStockCuisineCurceur) { ?>
+   	
+      <div class="card" style="width: 10rem;">
+      <a href="#"><img class="card-img-top" style="max-width: auto; max-height: 100px;" src="https://lh3.googleusercontent.com/proxy/6Xc9M6temviGUbzdk5Yxz_SGKRgkPGb6m_BUC9g2Qx5RDuN48y6pQMIFZMWpxFxCAp0Sqd7NQni1HU-izplSemLk3cS5FL47aBK-0aieCaQP7ytYTtCuK5dDNrAvdPEDPg" alt="Card image cap"></a>
+      <div class="card-body">
+      <div class="cercle cercle-red"></div>
+        <div class="titre_produit_stock">
+          <h5 class="card-title"><?= $RecuperationDesStockCuisineCurceur->nom ?></h5>
+        </div>
+        <div class="stock_produit_stock">
+         <id style="font-size: 25px; color:black;"><?= $RecuperationDesStockCuisineCurceur->stock_actuel ?></id><id style="color:#E74C3C; font-weight: bold;">/<?= $RecuperationDesStockCuisineCurceur->stock_base ?></id>
+        </div>
+        <div class="badge_produit_stock">
+          <span class="badge badge-success">Disponible</span>
+        </div>
+      </div>
+    </div>
+      <?php } ?>
+  </div>
+
+</div>
+
+<?php include "v_footer.php" ?>

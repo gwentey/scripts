@@ -1,0 +1,26 @@
+*{
+  box-sizing: border-box;
+}
+
+.card-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card-container a{
+  color: #000;
+  text-decoration: none;
+}
+
+.card{
+  margin: 10px;
+}
+
+@media (min-width: 800px){
+  .card-container{
+    flex-wrap: no-wrap;
+  }
+}
+
+

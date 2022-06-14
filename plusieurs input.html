@@ -1,0 +1,42 @@
+<span class="">quantité</span>
+ <input id="quantite_produit" name="quantite_produit[]" step="any" type="number" class="quantite_produit form-control" value="" oninput="calculate()">
+ <span class="">prix</span>
+ <input id="prix_produit_de_base" type="hidden" name="prix_produit_de_base" class = "prix_produit_de_base" 
+ value="30"/>
+  <input id="prix_produit" type="number" name="prix_produit[]" class = "prix_produit" value=""/>
+<br>
+<span class="">quantité</span>
+ <input id="quantite_produit" name="quantite_produit[]" step="any" type="number" class="quantite_produit form-control" value="" oninput="calculate()">
+ <span class="">prix</span>
+ <input id="prix_produit_de_base" type="hidden" name="prix_produit_de_base" class = "prix_produit_de_base" 
+ value="50"/>
+ <input id="prix_produit" type="number" name="prix_produit[]" class = "prix_produit" value=""/>
+
+<script>
+function calculate() {
+// on re-calcule tout à chaque saisie
+ 
+ // nbre d'élément atant la class "quantite_produit"
+ // chaque quantité i est en couple avec un prix i
+var nbligne = document.getElementsByClassName('quantite_produit').length; 
+for (let i = 0; i < nbligne; i++) {
+ var letotal=0;
+ 
+ var x = document.getElementsByClassName('quantite_produit')[i].value;
+ var y = document.getElementsByClassName('prix_produit_de_base')[i].value;
+ prix_produit = document.getElementsByClassName('prix_produit')[i];
+ 
+ //si pas de quantité on ne fait pas de calcul
+ if (x=="") {
+    prix_produit.value="";
+    continue; // on passe au suivant
+ }
+ 
+ letotal = letotal + ((x * 10 * y * 10) / 100); i // x will be 0.3
+ 
+ prix_produit.value = letotal;
+}
+ 
+}
+
+</script>
